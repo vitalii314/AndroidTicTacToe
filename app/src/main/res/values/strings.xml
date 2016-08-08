@@ -3,4 +3,5 @@
     <string name="empty" />
     <string name="cross">X</string>
     <string name="nought">0</string>
+    <string name="title">Tic Tac Toe \n by vitalii314</string>
 </resources>

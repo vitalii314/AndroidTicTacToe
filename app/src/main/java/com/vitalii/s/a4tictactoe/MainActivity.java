@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
 
             case R.id.button11:
-                simplePlayground.doStep(1, 1);
-                switch (simplePlayground.getBoard().cells[1][1].content) {
+                simplePlayground.doStep(0, 0);
+                switch (simplePlayground.getBoard().cells[0][0].content) {
                     case CROSS:
                         mButton11.setText(R.string.cross);
                         break;
@@ -77,8 +77,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.button12:
-                simplePlayground.doStep(1,2);
-                switch (simplePlayground.getBoard().cells[1][2].content) {
+                simplePlayground.doStep(0,1);
+                switch (simplePlayground.getBoard().cells[0][1].content) {
                     case CROSS:
                         mButton12.setText(R.string.cross);
                         break;
@@ -92,7 +92,111 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.button13:
+                simplePlayground.doStep(0,2);
+                switch (simplePlayground.getBoard().cells[0][2].content) {
+                    case CROSS:
+                        mButton13.setText(R.string.cross);
+                        break;
+                    case NOUGHT:
+                        mButton13.setText(R.string.nought);
+                        break;
+                    case EMPTY:
+                        mButton13.setText(R.string.empty);
+                        break;
+                }
                 break;
+
+            case R.id.button21:
+                simplePlayground.doStep(1,0);
+                switch (simplePlayground.getBoard().cells[1][0].content) {
+                    case CROSS:
+                        mButton21.setText(R.string.cross);
+                        break;
+                    case NOUGHT:
+                        mButton21.setText(R.string.nought);
+                        break;
+                    case EMPTY:
+                        mButton21.setText(R.string.empty);
+                        break;
+                }
+                break;
+
+            case R.id.button22:
+                simplePlayground.doStep(1,1);
+                switch (simplePlayground.getBoard().cells[1][1].content) {
+                    case CROSS:
+                        mButton22.setText(R.string.cross);
+                        break;
+                    case NOUGHT:
+                        mButton22.setText(R.string.nought);
+                        break;
+                    case EMPTY:
+                        mButton22.setText(R.string.empty);
+                        break;
+
+                }
+                break;
+
+            case R.id.button23:
+                simplePlayground.doStep(1,2);
+                switch (simplePlayground.getBoard().cells[1][2].content){
+                    case CROSS:
+                        mButton23.setText(R.string.cross);
+                        break;
+                    case NOUGHT:
+                        mButton23.setText(R.string.nought);
+                        break;
+                    case EMPTY:
+                        mButton23.setText(R.string.empty);
+                        break;
+                }
+                break;
+
+            case R.id.button31:
+                simplePlayground.doStep(2,0);
+                switch (simplePlayground.getBoard().cells[2][0].content){
+                    case CROSS:
+                        mButton31.setText(R.string.cross);
+                        break;
+                    case NOUGHT:
+                        mButton31.setText(R.string.nought);
+                        break;
+                    case EMPTY:
+                        mButton31.setText(R.string.empty);
+                        break;
+                }
+                break;
+
+            case R.id.button32:
+                simplePlayground.doStep(2,1);
+                switch (simplePlayground.getBoard().cells[2][1].content){
+                    case CROSS:
+                        mButton32.setText(R.string.cross);
+                        break;
+                    case NOUGHT:
+                        mButton32.setText(R.string.nought);
+                        break;
+                    case EMPTY:
+                        mButton32.setText(R.string.empty);
+                        break;
+                }
+                break;
+
+            case R.id.button33 :
+                simplePlayground.doStep(2,2);
+                switch (simplePlayground.getBoard().cells[2][2].content) {
+                    case CROSS:
+                        mButton33.setText(R.string.cross);
+                        break;
+                    case NOUGHT:
+                        mButton33.setText(R.string.nought);
+                        break;
+                    case EMPTY:
+                        mButton33.setText(R.string.empty);
+                        break;
+                }
+
+
 
         }
 
