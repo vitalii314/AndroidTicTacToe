@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">4TicTacToe</string>
+    <string name="app_name">TicTacToe</string>
     <string name="empty" />
     <string name="cross">X</string>
     <string name="nought">0</string>
@@ -9,4 +9,5 @@
     <string name="oWin">\"0\" WIN!</string>
     <string name="start_against_player">Start against player</string>
     <string name="start_against_cpu">Start against CPU</string>
+    <string name="special_text"><![CDATA[Specially designed for Max&Miha]]></string>
 </resources>

@@ -10,95 +10,6 @@
     tools:context="com.vitalii.s.a4tictactoe.MainActivity"
     android:background="@color/main_background2">
 
-    <Button
-        android:layout_width="@dimen/ButtonWidth"
-        android:layout_height="@dimen/ButtonHeigth"
-        android:text="@string/empty"
-        android:id="@+id/button12"
-        android:layout_alignBaseline="@+id/button11"
-        android:layout_alignBottom="@+id/button11"
-        android:layout_centerHorizontal="true"
-        android:contextClickable="false" />
-
-    <Button
-        android:layout_width="@dimen/ButtonWidth"
-        android:layout_height="@dimen/ButtonHeigth"
-        android:text="@string/empty"
-        android:id="@+id/button13"
-        android:layout_alignTop="@+id/button12"
-        android:layout_toRightOf="@+id/button12"
-        android:layout_toEndOf="@+id/button12" />
-
-    <Button
-        android:layout_width="@dimen/ButtonWidth"
-        android:layout_height="@dimen/ButtonHeigth"
-        android:text="@string/empty"
-        android:id="@+id/button11"
-        android:contextClickable="false"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/button12"
-        android:layout_toStartOf="@+id/button12" />
-
-    <Button
-        android:layout_width="@dimen/ButtonWidth"
-        android:layout_height="@dimen/ButtonHeigth"
-        android:text="@string/empty"
-        android:id="@+id/button21"
-        android:contextClickable="false"
-        android:layout_below="@+id/button11"
-        android:layout_alignLeft="@+id/button11"
-        android:layout_alignStart="@+id/button11" />
-
-    <Button
-        android:layout_width="@dimen/ButtonWidth"
-        android:layout_height="@dimen/ButtonHeigth"
-        android:text="@string/empty"
-        android:id="@+id/button22"
-        android:contextClickable="false"
-        android:layout_below="@+id/button12"
-        android:layout_toLeftOf="@+id/button13"
-        android:layout_toStartOf="@+id/button13" />
-
-    <Button
-        android:layout_width="@dimen/ButtonWidth"
-        android:layout_height="@dimen/ButtonHeigth"
-        android:text="@string/empty"
-        android:id="@+id/button23"
-        android:contextClickable="false"
-        android:layout_alignTop="@+id/button22"
-        android:layout_alignLeft="@+id/button13"
-        android:layout_alignStart="@+id/button13" />
-
-    <Button
-        android:layout_width="@dimen/ButtonWidth"
-        android:layout_height="@dimen/ButtonHeigth"
-        android:text="@string/empty"
-        android:id="@+id/button31"
-        android:contextClickable="false"
-        android:layout_below="@+id/button21"
-        android:layout_toLeftOf="@+id/button22"
-        android:layout_toStartOf="@+id/button22" />
-
-    <Button
-        android:layout_width="@dimen/ButtonWidth"
-        android:layout_height="@dimen/ButtonHeigth"
-        android:text="@string/empty"
-        android:id="@+id/button32"
-        android:contextClickable="false"
-        android:layout_alignTop="@+id/button31"
-        android:layout_toRightOf="@+id/button31"
-        android:layout_toEndOf="@+id/button31" />
-
-    <Button
-        android:layout_width="@dimen/ButtonWidth"
-        android:layout_height="@dimen/ButtonHeigth"
-        android:text="@string/empty"
-        android:id="@+id/button33"
-        android:contextClickable="false"
-        android:layout_below="@+id/button23"
-        android:layout_alignLeft="@+id/button23"
-        android:layout_alignStart="@+id/button23" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -116,24 +27,36 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/empty"
         android:id="@+id/textResult"
-        android:layout_above="@+id/button11"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="43dp" />
+        android:layout_marginBottom="43dp"
+        android:layout_centerVertical="true" />
 
     <Button
         android:layout_width="@dimen/button_start_width"
         android:layout_height="@dimen/button_start_height"
         android:text="@string/start_against_player"
         android:id="@+id/startPlayer"
-        android:onClick="onButtonClick"
-        android:layout_below="@+id/button33"
-        android:layout_centerHorizontal="true" />
+        android:onClick="onStartAgainstPlayerClick"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="52dp" />
 
     <Button
         android:layout_width="@dimen/button_start_width"
         android:layout_height="@dimen/button_start_height"
         android:text="@string/start_against_cpu"
         android:id="@+id/startComputer"
-        android:layout_below="@+id/startPlayer"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/startPlayer"
+        android:layout_alignStart="@+id/startPlayer"
+        android:layout_marginBottom="9dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/special_text"
+        android:id="@+id/textSpecialDesign"
+        android:layout_below="@+id/textTitle"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
