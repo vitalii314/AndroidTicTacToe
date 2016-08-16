@@ -17,6 +17,9 @@
         <activity android:name=".AgainstPlayerActivity"
             android:label="@string/app_name">
         </activity>
+        <activity android:name=".AgainstCpuActivity"
+            android:label="TicTacToe">
+        </activity>
     </application>
 
 </manifest>
