@@ -10,4 +10,5 @@
     <string name="start_against_player">Start against player</string>
     <string name="start_against_cpu">Start against CPU</string>
     <string name="special_text"><![CDATA[Specially designed for Max&Miha]]></string>
+    <string name="title_activity_against_cpu">AgainstCpuActivity</string>
 </resources>

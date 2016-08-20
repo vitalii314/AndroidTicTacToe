@@ -28,8 +28,10 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
     Button mButton33;
     Button mButtonStartPlayer;
     TextView mResultText;
+    TextView mBotMoveInfoText;
     SimplePlayGround simplePlayground = new SimplePlayGround();
     Bot bot = new Bot();
+    int mTurn=1; //  - player turn ; 2 - cpu
 
 
 
@@ -38,6 +40,7 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_against_cpu);
         mResultText = (TextView)findViewById(R.id.textResult);
+        mBotMoveInfoText =(TextView)findViewById(R.id.BotMoveInfo);
         mButton11 = (Button)findViewById(R.id.button11);
         mButton12 = (Button)findViewById(R.id.button12);
         mButton13 = (Button)findViewById(R.id.button13);
@@ -64,40 +67,67 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
     }
 
 
-    public void makeBotMove() {
-        //if (simplePlayground.getCurrentPlayer()== Seed.NOUGHT){
-            int[] compMove = bot.makeMove(simplePlayground);
-            int a = compMove[1];
-            int b = compMove[0];
-            if (a==0&&b==0) mButton11.setText(R.string.nought);
-            if (a==0&&b==1) mButton12.setText(R.string.nought);
-            if (a==0&&b==2) mButton13.setText(R.string.nought);
-            if (a==1&&b==0) mButton21.setText(R.string.nought);
-            if (a==1&&b==1) mButton22.setText(R.string.nought);
-            if (a==1&&b==2) mButton23.setText(R.string.nought);
-            if (a==2&&b==0) mButton31.setText(R.string.nought);
-            if (a==2&&b==1) mButton32.setText(R.string.nought);
-            if (a==2&&b==2) mButton33.setText(R.string.nought);
-
-        //}
-
-    }
-
-
     //    public void Button11Clicked(View view) {
 //        mTextView.setText("Я хожу "+ ++count);
 //
 //    }
 
-//    public void onButtonStartAgainstPlayerClick(View view) {
-//        simplePlayground.start();
-//        cleanAllButtons();
-//    }
+    public void onButtonStartAgainstPlayerClick(View view) {
+        simplePlayground.start();
+        cleanAllButtons();
+    }
 
-//    public void onButtonStartAgainstCpuClick(View view) {
-//        simplePlayground.start();
-//        cleanAllButtons();
-//    }
+    public void onButtonStartAgainstCpuClick(View view) {
+        simplePlayground.start();
+        bot = new Bot();
+        cleanAllButtons();
+    }
+
+    public void makeBotMove() {
+        if (mTurn==2) {
+            int[] compMove = bot.makeMove(simplePlayground);
+            int a = compMove[0];
+            int b = compMove[1];
+           // mBotMoveInfoText.setText("Bot move: " + a + " " + b);
+
+
+            State state = simplePlayground.doStep(a, b);
+
+            if (simplePlayground.getBoard().cells[0][0].content == Seed.NOUGHT) {
+                mButton11.setText(R.string.nought);
+            }
+            if (simplePlayground.getBoard().cells[0][1].content == Seed.NOUGHT) {
+                mButton12.setText(R.string.nought);
+            }
+            if (simplePlayground.getBoard().cells[0][2].content == Seed.NOUGHT) {
+                mButton13.setText(R.string.nought);
+            }
+            if (simplePlayground.getBoard().cells[1][0].content == Seed.NOUGHT) {
+                mButton21.setText(R.string.nought);
+            }
+            if (simplePlayground.getBoard().cells[1][1].content == Seed.NOUGHT) {
+                mButton22.setText(R.string.nought);
+            }
+            if (simplePlayground.getBoard().cells[1][2].content == Seed.NOUGHT) {
+                mButton23.setText(R.string.nought);
+            }
+            if (simplePlayground.getBoard().cells[2][0].content == Seed.NOUGHT) {
+                mButton31.setText(R.string.nought);
+            }
+            if (simplePlayground.getBoard().cells[2][1].content == Seed.NOUGHT) {
+                mButton32.setText(R.string.nought);
+            }
+            if (simplePlayground.getBoard().cells[2][2].content == Seed.NOUGHT) {
+                mButton33.setText(R.string.nought);
+            }
+            printWinner(state);
+            mTurn = 1;
+            mBotMoveInfoText.setText("turn= "+mTurn);
+
+        }
+
+    }
+
 
 
     @Override
@@ -105,6 +135,8 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
         if (simplePlayground.getBoard() != null) {
             switch (view.getId()) {
                 case R.id.button11:
+                    if (simplePlayground.getBoard().cells[0][0].content==Seed.EMPTY) mTurn=2;
+                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state11 = simplePlayground.doStep(0, 0);
                     switch (simplePlayground.getBoard().cells[0][0].content) {
                         case CROSS:
@@ -117,11 +149,13 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
                             mButton11.setText(R.string.empty);
                             break;
                     }
-                    makeBotMove();
                     printWinner(state11);
+                    makeBotMove();
                     break;
 
                 case R.id.button12:
+                    if (simplePlayground.getBoard().cells[0][1].content==Seed.EMPTY) mTurn=2;
+                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state12 = simplePlayground.doStep(0, 1);
                     switch (simplePlayground.getBoard().cells[0][1].content) {
                         case CROSS:
@@ -134,12 +168,13 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
                             mButton12.setText(R.string.empty);
                             break;
                     }
-                    makeBotMove();
                     printWinner(state12);
+                    makeBotMove();
                     break;
 
                 case R.id.button13:
-
+                    if (simplePlayground.getBoard().cells[0][2].content==Seed.EMPTY) mTurn=2;
+                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state13 = simplePlayground.doStep(0, 2);
                     switch (simplePlayground.getBoard().cells[0][2].content) {
                         case CROSS:
@@ -152,11 +187,13 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
                             mButton13.setText(R.string.empty);
                             break;
                     }
-                    makeBotMove();
                     printWinner(state13);
+                    makeBotMove();
                     break;
 
                 case R.id.button21:
+                    if (simplePlayground.getBoard().cells[1][0].content==Seed.EMPTY) mTurn=2;
+                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state21 = simplePlayground.doStep(1, 0);
                     switch (simplePlayground.getBoard().cells[1][0].content) {
                         case CROSS:
@@ -170,9 +207,12 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
                             break;
                     }
                     printWinner(state21);
+                    makeBotMove();
                     break;
 
                 case R.id.button22:
+                    if (simplePlayground.getBoard().cells[1][1].content==Seed.EMPTY) mTurn=2;
+                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state22 = simplePlayground.doStep(1, 1);
                     switch (simplePlayground.getBoard().cells[1][1].content) {
                         case CROSS:
@@ -187,9 +227,12 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
 
                     }
                     printWinner(state22);
+                    makeBotMove();
                     break;
 
                 case R.id.button23:
+                    if (simplePlayground.getBoard().cells[1][2].content==Seed.EMPTY) mTurn=2;
+                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state23 = simplePlayground.doStep(1, 2);
                     switch (simplePlayground.getBoard().cells[1][2].content) {
                         case CROSS:
@@ -203,9 +246,12 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
                             break;
                     }
                     printWinner(state23);
+                    makeBotMove();
                     break;
 
                 case R.id.button31:
+                    if (simplePlayground.getBoard().cells[2][0].content==Seed.EMPTY) mTurn=2;
+                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state31 = simplePlayground.doStep(2, 0);
                     switch (simplePlayground.getBoard().cells[2][0].content) {
                         case CROSS:
@@ -219,9 +265,12 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
                             break;
                     }
                     printWinner(state31);
+                    makeBotMove();
                     break;
 
                 case R.id.button32:
+                    if (simplePlayground.getBoard().cells[2][1].content==Seed.EMPTY) mTurn=2;
+                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state32 = simplePlayground.doStep(2, 1);
                     switch (simplePlayground.getBoard().cells[2][1].content) {
                         case CROSS:
@@ -235,9 +284,12 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
                             break;
                     }
                     printWinner(state32);
+                    makeBotMove();
                     break;
 
                 case R.id.button33:
+                    if (simplePlayground.getBoard().cells[2][2].content==Seed.EMPTY) mTurn=2;
+                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state33 = simplePlayground.doStep(2, 2);
                     switch (simplePlayground.getBoard().cells[2][2].content) {
                         case CROSS:
@@ -251,6 +303,7 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
                             break;
                     }
                     printWinner(state33);
+                    makeBotMove();
                     break;
             }
 
@@ -290,3 +343,4 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
 
 
 }
+

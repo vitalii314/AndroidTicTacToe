@@ -9,6 +9,10 @@ public class Bot {
 
     public boolean firstMove;
 
+    public Bot(){
+        firstMove = true;
+    }
+
     public int[] getRandomMove(SimplePlayGround playGround) {
         while (true) {
             int a = ((int) (Math.random() * 3));
@@ -34,7 +38,7 @@ public class Bot {
             return computerMove;
         }
 
-        if (playGround.getBoard().cells[1][1].content == Seed.EMPTY) {
+        if ((firstMove)&&playGround.getBoard().cells[1][1].content == Seed.EMPTY) {
             computerMove[0] = 1;
             computerMove[1] = 1;
             firstMove = false;
