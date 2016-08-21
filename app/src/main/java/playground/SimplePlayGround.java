@@ -59,7 +59,7 @@ public class SimplePlayGround implements Playground {
         return State.PLAY;
     }
 
-    private boolean isFinished() {
+    public boolean isFinished() {
         return board.hasWon(Seed.CROSS) || (board.hasWon(Seed.NOUGHT) || board.isDraw());
     }
 

@@ -134,6 +134,7 @@
         android:layout_height="@dimen/button_start_height"
         android:text="@string/start_against_cpu"
         android:id="@+id/startComputer"
+        android:onClick="onButtonStartAgainstCpuClick"
         android:layout_below="@+id/startPlayer"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -1,6 +1,7 @@
 package com.vitalii.s.a4tictactoe;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -28,10 +29,10 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
     Button mButton33;
     Button mButtonStartPlayer;
     TextView mResultText;
-    TextView mBotMoveInfoText;
     SimplePlayGround simplePlayground = new SimplePlayGround();
     Bot bot = new Bot();
     int mTurn=1; //  - player turn ; 2 - cpu
+    State state;
 
 
 
@@ -40,7 +41,6 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_against_cpu);
         mResultText = (TextView)findViewById(R.id.textResult);
-        mBotMoveInfoText =(TextView)findViewById(R.id.BotMoveInfo);
         mButton11 = (Button)findViewById(R.id.button11);
         mButton12 = (Button)findViewById(R.id.button12);
         mButton13 = (Button)findViewById(R.id.button13);
@@ -73,8 +73,8 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
 //    }
 
     public void onButtonStartAgainstPlayerClick(View view) {
-        simplePlayground.start();
-        cleanAllButtons();
+        Intent intent = new Intent(AgainstCpuActivity.this, AgainstPlayerActivity.class );
+        startActivity(intent);
     }
 
     public void onButtonStartAgainstCpuClick(View view) {
@@ -84,11 +84,10 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
     }
 
     public void makeBotMove() {
-        if (mTurn==2) {
+        if (mTurn==2&&!simplePlayground.isFinished()) {
             int[] compMove = bot.makeMove(simplePlayground);
             int a = compMove[0];
             int b = compMove[1];
-           // mBotMoveInfoText.setText("Bot move: " + a + " " + b);
 
 
             State state = simplePlayground.doStep(a, b);
@@ -122,7 +121,6 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
             }
             printWinner(state);
             mTurn = 1;
-            mBotMoveInfoText.setText("turn= "+mTurn);
 
         }
 
@@ -136,7 +134,6 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
             switch (view.getId()) {
                 case R.id.button11:
                     if (simplePlayground.getBoard().cells[0][0].content==Seed.EMPTY) mTurn=2;
-                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state11 = simplePlayground.doStep(0, 0);
                     switch (simplePlayground.getBoard().cells[0][0].content) {
                         case CROSS:
@@ -155,7 +152,6 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
 
                 case R.id.button12:
                     if (simplePlayground.getBoard().cells[0][1].content==Seed.EMPTY) mTurn=2;
-                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state12 = simplePlayground.doStep(0, 1);
                     switch (simplePlayground.getBoard().cells[0][1].content) {
                         case CROSS:
@@ -174,7 +170,6 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
 
                 case R.id.button13:
                     if (simplePlayground.getBoard().cells[0][2].content==Seed.EMPTY) mTurn=2;
-                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state13 = simplePlayground.doStep(0, 2);
                     switch (simplePlayground.getBoard().cells[0][2].content) {
                         case CROSS:
@@ -193,7 +188,6 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
 
                 case R.id.button21:
                     if (simplePlayground.getBoard().cells[1][0].content==Seed.EMPTY) mTurn=2;
-                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state21 = simplePlayground.doStep(1, 0);
                     switch (simplePlayground.getBoard().cells[1][0].content) {
                         case CROSS:
@@ -212,7 +206,6 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
 
                 case R.id.button22:
                     if (simplePlayground.getBoard().cells[1][1].content==Seed.EMPTY) mTurn=2;
-                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state22 = simplePlayground.doStep(1, 1);
                     switch (simplePlayground.getBoard().cells[1][1].content) {
                         case CROSS:
@@ -232,7 +225,6 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
 
                 case R.id.button23:
                     if (simplePlayground.getBoard().cells[1][2].content==Seed.EMPTY) mTurn=2;
-                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state23 = simplePlayground.doStep(1, 2);
                     switch (simplePlayground.getBoard().cells[1][2].content) {
                         case CROSS:
@@ -251,7 +243,6 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
 
                 case R.id.button31:
                     if (simplePlayground.getBoard().cells[2][0].content==Seed.EMPTY) mTurn=2;
-                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state31 = simplePlayground.doStep(2, 0);
                     switch (simplePlayground.getBoard().cells[2][0].content) {
                         case CROSS:
@@ -270,7 +261,6 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
 
                 case R.id.button32:
                     if (simplePlayground.getBoard().cells[2][1].content==Seed.EMPTY) mTurn=2;
-                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state32 = simplePlayground.doStep(2, 1);
                     switch (simplePlayground.getBoard().cells[2][1].content) {
                         case CROSS:
@@ -289,7 +279,6 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
 
                 case R.id.button33:
                     if (simplePlayground.getBoard().cells[2][2].content==Seed.EMPTY) mTurn=2;
-                    mBotMoveInfoText.setText("turn= "+mTurn);
                     State state33 = simplePlayground.doStep(2, 2);
                     switch (simplePlayground.getBoard().cells[2][2].content) {
                         case CROSS:

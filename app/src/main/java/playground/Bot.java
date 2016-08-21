@@ -7,7 +7,7 @@ import android.transition.Transition;
  */
 public class Bot {
 
-    public boolean firstMove;
+    private boolean firstMove;
 
     public Bot(){
         firstMove = true;
@@ -20,12 +20,13 @@ public class Bot {
             int[] computerMove = new int[2];
 
             if (playGround.getBoard().cells[a][b].content == Seed.EMPTY) {
-                computerMove[0] = b;
-                computerMove[1] = a;
+                computerMove[0] = a;
+                computerMove[1] = b;
                 return computerMove;
             }
 
         }
+
     }
 
 
@@ -62,8 +63,8 @@ public class Bot {
             }
             if ((repeatNumber == 2) &&
                     (playGround.getBoard().cells[i][numberOfColumn].content == Seed.EMPTY)) {
-                computerMove[0] = numberOfColumn;
-                computerMove[1] = i;
+                computerMove[0] = i;
+                computerMove[1] = numberOfColumn;
                 firstMove = false;
                 return computerMove;
             }
@@ -74,7 +75,7 @@ public class Bot {
             int repeatNumber = 0;
             int numberOfLine = 0;
             for (int j = 0; j < playGround.getBoard().cells[i].length; j++) {
-                if (playGround.getBoard().cells[j][i].content == Seed.CROSS) {
+                if (playGround.getBoard().cells[j][i].content == Seed.NOUGHT) {
                     repeatNumber++;
                 }
                 if (playGround.getBoard().cells[j][i].content == Seed.EMPTY) {
@@ -84,8 +85,8 @@ public class Bot {
             }
             if ((repeatNumber == 2) &&
                     (playGround.getBoard().cells[numberOfLine][i].content == Seed.EMPTY)) {
-                computerMove[0] = i;
-                computerMove[1] = numberOfLine;
+                computerMove[0] = numberOfLine;
+                computerMove[1] = i;
                 firstMove = false;
                 return computerMove;
             }
@@ -140,9 +141,10 @@ public class Bot {
         }
 
         if ((repeatNumber2 == 2) &&
-                (playGround.getBoard().cells[number2][number3].content == Seed.EMPTY)) {
-            computerMove[0] = number3;
-            computerMove[1] = number2;
+                (playGround.getBoard().cells[number2][number3].content == Seed.EMPTY&&
+                        (!(number2==0&&number3==0)))) {
+            computerMove[0] = number2;
+            computerMove[1] = number3;
             firstMove = false;
             return computerMove;
         }
@@ -152,7 +154,7 @@ public class Bot {
             int repeatNumberNew=0;
             int numberOfColumnNew=0;
             for (int j = 0; j < playGround.getBoard().cells[i].length; j++) {
-                if (playGround.getBoard().cells[i][j].content == Seed.NOUGHT) {
+                if (playGround.getBoard().cells[i][j].content == Seed.CROSS) {
                     repeatNumberNew++;
                 }
                 if (playGround.getBoard().cells[i][j].content==Seed.EMPTY) {
@@ -162,8 +164,8 @@ public class Bot {
             }
             if ((repeatNumberNew==2)&&
                     (playGround.getBoard().cells[i][numberOfColumnNew].content==Seed.EMPTY)) {
-                computerMove[0]=numberOfColumnNew;
-                computerMove[1]=i;
+                computerMove[0]=i;
+                computerMove[1]=numberOfColumnNew;
                 firstMove=false;
                 return computerMove;
             }
@@ -173,7 +175,7 @@ public class Bot {
             int repeatNumberNew=0;
             int numberOfLineNew=0;
             for (int j = 0; j < playGround.getBoard().cells[i].length; j++) {
-                if (playGround.getBoard().cells[j][i].content == Seed.NOUGHT) {
+                if (playGround.getBoard().cells[j][i].content == Seed.CROSS) {
                     repeatNumberNew++;
                 }
                 if (playGround.getBoard().cells[j][i].content==Seed.EMPTY) {
@@ -183,8 +185,8 @@ public class Bot {
             }
             if ((repeatNumberNew==2)&&
                     (playGround.getBoard().cells[numberOfLineNew][i].content==Seed.EMPTY)) {
-                computerMove[0]=i;
-                computerMove[1]=numberOfLineNew;
+                computerMove[0]=numberOfLineNew;
+                computerMove[1]=i;
                 firstMove=false;
                 return computerMove;
             }
@@ -194,7 +196,7 @@ public class Bot {
         int repeatNumberCross=0;
         int numberCross=0;
         for (int i = 0; i < 3; i++) {
-            if (playGround.getBoard().cells[i][i].content == Seed.NOUGHT) {
+            if (playGround.getBoard().cells[i][i].content == Seed.CROSS) {
                 repeatNumberCross++;
             }
             if (playGround.getBoard().cells[i][i].content == Seed.EMPTY) {
@@ -213,7 +215,7 @@ public class Bot {
         int numberCross2=0;
         int numberCross3=0;
 
-        if (playGround.getBoard().cells[2][0].content == Seed.NOUGHT) {
+        if (playGround.getBoard().cells[2][0].content == Seed.CROSS) {
             repeatNumberCross2++;
         }
         if (playGround.getBoard().cells[2][0].content == Seed.EMPTY) {
@@ -221,7 +223,7 @@ public class Bot {
             numberCross3 = 0;
         }
 
-        if (playGround.getBoard().cells[1][1].content == Seed.NOUGHT) {
+        if (playGround.getBoard().cells[1][1].content == Seed.CROSS) {
             repeatNumberCross2++;
         }
         if (playGround.getBoard().cells[1][1].content == Seed.EMPTY) {
@@ -229,7 +231,7 @@ public class Bot {
             numberCross3=1;
         }
 
-        if (playGround.getBoard().cells[0][2].content == Seed.NOUGHT) {
+        if (playGround.getBoard().cells[0][2].content == Seed.CROSS) {
             repeatNumberCross2++;
         }
         if (playGround.getBoard().cells[0][2].content == Seed.EMPTY) {
@@ -239,8 +241,8 @@ public class Bot {
 
         if ((repeatNumberCross2==2)&&
                 (playGround.getBoard().cells[numberCross2][numberCross3].content==Seed.EMPTY)) {
-            computerMove[0] = numberCross3;
-            computerMove[1] = numberCross2;
+            computerMove[0] = numberCross2;
+            computerMove[1] = numberCross3;
             firstMove=false;
             return computerMove;
         }

@@ -1,6 +1,7 @@
 package com.vitalii.s.a4tictactoe;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -70,6 +71,12 @@ public class AgainstPlayerActivity extends AppCompatActivity implements View.OnC
         simplePlayground.start();
         cleanAllButtons();
     }
+
+    public void onButtonStartAgainstCpuClick(View view) {
+        Intent intent = new Intent(AgainstPlayerActivity.this,AgainstCpuActivity.class );
+        startActivity(intent);
+    }
+
 
 
     @Override
