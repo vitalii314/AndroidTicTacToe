@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="main_background">#0d05eb</color>
     <color name="main_background2">#786f6f</color>
+    <color name="main_background3">#4279e8</color>
+    <color name="title_color">#cfeefb</color>
+    <color name="special_color">#fff200</color>
 </resources>

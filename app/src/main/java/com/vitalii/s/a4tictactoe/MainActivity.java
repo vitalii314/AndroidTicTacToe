@@ -27,9 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-
     public void onButtonStartAgainstCpuClick(View view) {
         Intent intent = new Intent(MainActivity.this, AgainstCpuActivity.class);
         startActivity(intent);
     }
+
+
 }

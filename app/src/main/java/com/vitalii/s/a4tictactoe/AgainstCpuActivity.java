@@ -83,6 +83,8 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
         cleanAllButtons();
     }
 
+
+
     public void makeBotMove() {
         if (mTurn==2&&!simplePlayground.isFinished()) {
             int[] compMove = bot.makeMove(simplePlayground);

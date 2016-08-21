@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity"
-    android:background="@color/main_background2">
+    android:background="@color/main_background3">
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,7 +18,7 @@
         android:id="@+id/textTitle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/main_background"
+        android:textColor="@color/title_color"
         android:autoText="false" />
 
     <TextView
@@ -47,6 +47,7 @@
         android:text="@string/start_against_cpu"
         android:id="@+id/startComputer"
         android:layout_alignParentBottom="true"
+        android:onClick="onButtonStartAgainstCpuClick"
         android:layout_alignLeft="@+id/startPlayer"
         android:layout_alignStart="@+id/startPlayer"
         android:layout_marginBottom="9dp" />
@@ -58,9 +59,7 @@
         android:text="@string/special_text"
         android:id="@+id/textSpecialDesign"
         android:layout_below="@+id/textTitle"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/special_color" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
 </RelativeLayout>

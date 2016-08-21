@@ -79,6 +79,7 @@ public class AgainstPlayerActivity extends AppCompatActivity implements View.OnC
 
 
 
+
     @Override
     public void onClick(View view) {
         if (simplePlayground.getBoard() != null) {
