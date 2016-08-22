@@ -3,6 +3,7 @@ package com.vitalii.s.a4tictactoe;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -96,30 +97,39 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
 
             if (simplePlayground.getBoard().cells[0][0].content == Seed.NOUGHT) {
                 mButton11.setText(R.string.nought);
+                mButton11.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
             }
             if (simplePlayground.getBoard().cells[0][1].content == Seed.NOUGHT) {
                 mButton12.setText(R.string.nought);
+                mButton12.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
             }
             if (simplePlayground.getBoard().cells[0][2].content == Seed.NOUGHT) {
                 mButton13.setText(R.string.nought);
+                mButton13.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
             }
             if (simplePlayground.getBoard().cells[1][0].content == Seed.NOUGHT) {
                 mButton21.setText(R.string.nought);
+                mButton21.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
             }
             if (simplePlayground.getBoard().cells[1][1].content == Seed.NOUGHT) {
                 mButton22.setText(R.string.nought);
+                mButton22.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
             }
             if (simplePlayground.getBoard().cells[1][2].content == Seed.NOUGHT) {
                 mButton23.setText(R.string.nought);
+                mButton23.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
             }
             if (simplePlayground.getBoard().cells[2][0].content == Seed.NOUGHT) {
                 mButton31.setText(R.string.nought);
+                mButton31.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
             }
             if (simplePlayground.getBoard().cells[2][1].content == Seed.NOUGHT) {
                 mButton32.setText(R.string.nought);
+                mButton32.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
             }
             if (simplePlayground.getBoard().cells[2][2].content == Seed.NOUGHT) {
                 mButton33.setText(R.string.nought);
+                mButton33.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
             }
             printWinner(state);
             mTurn = 1;
@@ -140,9 +150,11 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
                     switch (simplePlayground.getBoard().cells[0][0].content) {
                         case CROSS:
                             mButton11.setText(R.string.cross);
+                            mButton11.setTextColor(ContextCompat.getColor(this, R.color.cross_color));
                             break;
                         case NOUGHT:
                             mButton11.setText(R.string.nought);
+                            mButton11.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
                             break;
                         case EMPTY:
                             mButton11.setText(R.string.empty);
@@ -158,9 +170,11 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
                     switch (simplePlayground.getBoard().cells[0][1].content) {
                         case CROSS:
                             mButton12.setText(R.string.cross);
+                            mButton12.setTextColor(ContextCompat.getColor(this, R.color.cross_color));
                             break;
                         case NOUGHT:
                             mButton12.setText(R.string.nought);
+                            mButton12.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
                             break;
                         case EMPTY:
                             mButton12.setText(R.string.empty);
@@ -176,9 +190,11 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
                     switch (simplePlayground.getBoard().cells[0][2].content) {
                         case CROSS:
                             mButton13.setText(R.string.cross);
+                            mButton13.setTextColor(ContextCompat.getColor(this, R.color.cross_color));
                             break;
                         case NOUGHT:
                             mButton13.setText(R.string.nought);
+                            mButton13.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
                             break;
                         case EMPTY:
                             mButton13.setText(R.string.empty);
@@ -194,9 +210,11 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
                     switch (simplePlayground.getBoard().cells[1][0].content) {
                         case CROSS:
                             mButton21.setText(R.string.cross);
+                            mButton21.setTextColor(ContextCompat.getColor(this, R.color.cross_color));
                             break;
                         case NOUGHT:
                             mButton21.setText(R.string.nought);
+                            mButton21.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
                             break;
                         case EMPTY:
                             mButton21.setText(R.string.empty);
@@ -212,9 +230,11 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
                     switch (simplePlayground.getBoard().cells[1][1].content) {
                         case CROSS:
                             mButton22.setText(R.string.cross);
+                            mButton22.setTextColor(ContextCompat.getColor(this, R.color.cross_color));
                             break;
                         case NOUGHT:
                             mButton22.setText(R.string.nought);
+                            mButton22.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
                             break;
                         case EMPTY:
                             mButton22.setText(R.string.empty);
@@ -231,9 +251,11 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
                     switch (simplePlayground.getBoard().cells[1][2].content) {
                         case CROSS:
                             mButton23.setText(R.string.cross);
+                            mButton23.setTextColor(ContextCompat.getColor(this, R.color.cross_color));
                             break;
                         case NOUGHT:
                             mButton23.setText(R.string.nought);
+                            mButton23.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
                             break;
                         case EMPTY:
                             mButton23.setText(R.string.empty);
@@ -249,9 +271,11 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
                     switch (simplePlayground.getBoard().cells[2][0].content) {
                         case CROSS:
                             mButton31.setText(R.string.cross);
+                            mButton31.setTextColor(ContextCompat.getColor(this, R.color.cross_color));
                             break;
                         case NOUGHT:
                             mButton31.setText(R.string.nought);
+                            mButton31.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
                             break;
                         case EMPTY:
                             mButton31.setText(R.string.empty);
@@ -267,9 +291,11 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
                     switch (simplePlayground.getBoard().cells[2][1].content) {
                         case CROSS:
                             mButton32.setText(R.string.cross);
+                            mButton32.setTextColor(ContextCompat.getColor(this, R.color.cross_color));
                             break;
                         case NOUGHT:
                             mButton32.setText(R.string.nought);
+                            mButton32.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
                             break;
                         case EMPTY:
                             mButton32.setText(R.string.empty);
@@ -285,9 +311,11 @@ public class AgainstCpuActivity extends AppCompatActivity implements View.OnClic
                     switch (simplePlayground.getBoard().cells[2][2].content) {
                         case CROSS:
                             mButton33.setText(R.string.cross);
+                            mButton33.setTextColor(ContextCompat.getColor(this, R.color.cross_color));
                             break;
                         case NOUGHT:
                             mButton33.setText(R.string.nought);
+                            mButton33.setTextColor(ContextCompat.getColor(this, R.color.nought_color));
                             break;
                         case EMPTY:
                             mButton33.setText(R.string.empty);

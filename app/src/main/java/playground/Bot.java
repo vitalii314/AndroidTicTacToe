@@ -140,9 +140,9 @@ public class Bot {
             number3 = 2;
         }
 
+        // add this condition to avoid bot's mistake &&(!(number2==0&&number3==0))
         if ((repeatNumber2 == 2) &&
-                (playGround.getBoard().cells[number2][number3].content == Seed.EMPTY&&
-                        (!(number2==0&&number3==0)))) {
+                (playGround.getBoard().cells[number2][number3].content == Seed.EMPTY)) {
             computerMove[0] = number2;
             computerMove[1] = number3;
             firstMove = false;

@@ -8,4 +8,6 @@
     <color name="main_background3">#4279e8</color>
     <color name="title_color">#cfeefb</color>
     <color name="special_color">#fff200</color>
+    <color name="cross_color">#cb3535</color>
+    <color name="nought_color">#037a1f</color>
 </resources>
